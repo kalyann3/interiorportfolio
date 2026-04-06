@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spaces — Interior Design & Agriculture Portfolio</title>
+  <meta name="description" content="Premium interior design and agriculture portfolio — 2D/3D interior design, farm planning, hydroponics, polyhouse and more.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════
+   SPACES — Premium Redesign
+   Concept: Warm luxury editorial meets SaaS conversion
+   Palette: Near-black / warm ivory / terracotta / sage
+═══════════════════════════════════════════ */
+:root {
+  --ink: #0f0d0b;
+  --ink2: #1c1916;
+  --ink3: #2a2520;
+  --ivory: #f5f0e8;
+  --ivory2: #faf7f2;
+  --terra: #c25e3a;
+  --terra2: #e07a56;
+  --terra3: rgba(194,94,58,0.12);
+  --sage: #3a4f3c;
+  --sage2: #4d6650;
+  --stone: #7a7068;
+  --sand: #c4b49a;
+  --sand2: #e2d8c8;
+  --white: #ffffff;
+  --r: 4px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
+body { background:var(--ink); color:var(--ivory); font-family:'Outfit',sans-serif; font-weight:300; overflow-x:hidden; }
+img { display:block; max-width:100%; }
+
+/* ── CURSOR ── */
+@media(min-width:769px){body{cursor:none;}}
+#cur { position:fixed; width:8px; height:8px; background:var(--terra); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .2s,height .2s,background .2s; }
+#cur.big { width:44px; height:44px; background:rgba(194,94,58,.18); }
+#cring { position:fixed; width:36px; height:36px; border:1px solid rgba(194,94,58,.45); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:transform .15s ease; }
+@media(max-width:768px){#cur,#cring{display:none;}}
+
+/* ── NOISE ── */
+body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E"); pointer-events:none; z-index:9000; }
+
+/* ── NAV ── */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:20px 56px; display:flex; align-items:center; justify-content:space-between; transition:all .4s; }
+nav.scrolled { background:rgba(15,13,11,.92); backdrop-filter:blur(20px); padding:14px 56px; border-bottom:1px solid rgba(196,180,154,.08); }
+.nav-logo { font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--ivory); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.nav-logo em { font-style:italic; color:var(--terra2); }
+.logo-pip { width:7px; height:7px; background:var(--terra); border-radius:50%; animation:pip 2.5s ease infinite; }
+@keyframes pip { 0%,100%{box-shadow:0 0 0 0 rgba(194,94,58,.6);} 50%{box-shadow:0 0 0 7px rgba(194,94,58,0);} }
+.nav-links { display:flex; gap:28px; align-items:center; }
+.nav-links a { font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; position:relative; }
+.nav-links a:hover { color:var(--ivory); }
+.nav-btn { background:var(--terra); color:var(--white)!important; padding:9px 22px; font-size:.63rem!important; letter-spacing:.15em; border-radius:2px; transition:all .3s!important; }
+.nav-btn:hover { background:var(--terra2)!important; transform:translateY(-1px)!important; box-shadow:0 8px 24px rgba(194,94,58,.35)!important; }
+.menu-tog { display:none; background:none; border:none; color:var(--ivory); font-size:1.4rem; cursor:pointer; }
+
+/* ── MOBILE NAV ── */
+.mob { display:none; position:fixed; inset:0; background:var(--ink); z-index:2000; flex-direction:column; align-items:center; justify-content:center; gap:28px; }
+.mob.open { display:flex; }
+.mob a { font-family:'DM Serif Display',serif; font-size:2.2rem; color:var(--ivory); text-decoration:none; transition:color .3s; }
+.mob a:hover { color:var(--terra2); }
+.mob-x { position:absolute; top:20px; right:20px; background:none; border:none; color:var(--sand); font-size:1.5rem; cursor:pointer; }
+
+/* ── HERO ── */
+#hero { min-height:100vh; position:relative; display:flex; align-items:center; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; display:grid; grid-template-columns:1.3fr .7fr 1fr .7fr; grid-template-rows:1fr 1fr; gap:2px; }
+.hc { overflow:hidden; background:var(--ink2); }
+.hc img { width:100%; height:100%; object-fit:cover; opacity:.45; filter:saturate(.7); transition:opacity 6s ease; transform:scale(1.06); }
+.hc:nth-child(1) { grid-row:1/3; }
+.hc:nth-child(4) { grid-row:1/3; }
+.hero-ov1 { position:absolute; inset:0; background:linear-gradient(110deg,rgba(15,13,11,.96) 0%,rgba(15,13,11,.7) 45%,rgba(15,13,11,.15) 100%); }
+.hero-ov2 { position:absolute; bottom:0; left:0; right:0; height:50%; background:linear-gradient(to top,rgba(15,13,11,1),transparent); }
+
+.hero-inner { position:relative; z-index:3; padding:0 56px; max-width:820px; }
+.hero-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:28px; opacity:0; animation:up 1s .3s forwards; }
+.eyebrow-badge { background:rgba(194,94,58,.15); border:1px solid rgba(194,94,58,.3); color:var(--terra2); font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; padding:6px 14px; border-radius:100px; }
+.eyebrow-line { flex:1; max-width:40px; height:1px; background:rgba(194,94,58,.4); }
+
+h1.hero-title { font-family:'DM Serif Display',serif; font-size:clamp(3.4rem,7.5vw,7.5rem); font-weight:400; line-height:.93; letter-spacing:-.02em; color:var(--ivory); margin-bottom:32px; opacity:0; animation:up 1s .5s forwards; }
+h1.hero-title em { font-style:italic; color:var(--terra2); }
+h1.hero-title .indent { display:block; padding-left:72px; }
+h1.hero-title .indent2 { display:block; padding-left:148px; }
+
+.hero-sub { font-size:1.02rem; font-weight:300; color:rgba(245,240,232,.55); line-height:1.8; max-width:420px; margin-bottom:48px; opacity:0; animation:up 1s .7s forwards; }
+
+.hero-actions { display:flex; gap:14px; align-items:center; flex-wrap:wrap; opacity:0; animation:up 1s .9s forwards; }
+.btn-primary { display:inline-flex; align-items:center; gap:10px; background:var(--terra); color:var(--white); padding:15px 34px; font-size:.68rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; border-radius:2px; border:1px solid var(--terra); transition:all .35s; position:relative; overflow:hidden; }
+.btn-primary::before { content:''; position:absolute; inset:0; background:var(--terra2); transform:translateX(-100%); transition:transform .35s; }
+.btn-primary:hover::before { transform:translateX(0); }
+.btn-primary span,.btn-primary svg { position:relative; z-index:1; }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(194,94,58,.4); }
+.btn-ghost { display:inline-flex; align-items:center; gap:10px; color:rgba(245,240,232,.7); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; padding:15px 0; border-bottom:1px solid rgba(245,240,232,.2); transition:all .3s; }
+.btn-ghost:hover { color:var(--ivory); border-bottom-color:var(--terra2); gap:16px; }
+
+/* Scroll indicator */
+.scroll-ind { position:absolute; bottom:40px; left:56px; z-index:3; display:flex; align-items:center; gap:12px; opacity:0; animation:up 1s 1.2s forwards; }
+.scroll-line { width:44px; height:1px; background:rgba(245,240,232,.25); position:relative; overflow:hidden; }
+.scroll-line::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--terra); animation:slide 2.2s ease infinite; }
+@keyframes slide { 0%{left:-100%;} 100%{left:100%;} }
+.scroll-txt { font-size:.55rem; letter-spacing:.35em; text-transform:uppercase; color:rgba(245,240,232,.35); }
+
+/* Floating stats */
+.hero-stats { position:absolute; bottom:0; right:0; z-index:3; display:grid; grid-template-columns:1fr 1fr; background:rgba(28,25,22,.85); backdrop-filter:blur(20px); border-top:1px solid rgba(196,180,154,.08); border-left:1px solid rgba(196,180,154,.08); opacity:0; animation:up 1s 1s forwards; }
+.hs { padding:20px 28px; border-right:1px solid rgba(196,180,154,.07); border-bottom:1px solid rgba(196,180,154,.07); transition:background .3s; }
+.hs:hover { background:rgba(194,94,58,.06); }
+.hs:nth-child(2),.hs:nth-child(4) { border-right:none; }
+.hs:nth-child(3),.hs:nth-child(4) { border-bottom:none; }
+.hs-n { font-family:'DM Serif Display',serif; font-size:2rem; color:var(--sand2); line-height:1; }
+.hs-l { font-size:.52rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(196,180,154,.45); margin-top:5px; }
+
+@keyframes up { from{opacity:0;transform:translateY(28px);} to{opacity:1;transform:translateY(0);} }
+
+/* ── TICKER ── */
+.ticker { background:var(--sage); padding:13px 0; overflow:hidden; border-top:1px solid rgba(196,180,154,.08); border-bottom:1px solid rgba(196,180,154,.08); }
+.ticker-inner { display:flex; white-space:nowrap; animation:ticker 30s linear infinite; }
+.ticker-item { font-size:.6rem; letter-spacing:.28em; text-transform:uppercase; color:rgba(226,216,200,.5); padding:0 44px; display:inline-flex; align-items:center; gap:14px; flex-shrink:0; }
+.tdot { width:4px; height:4px; background:var(--terra2); border-radius:50%; flex-shrink:0; }
+@keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+
+/* ── SECTION COMMON ── */
+.stag { font-size:.58rem; letter-spacing:.38em; text-transform:uppercase; color:var(--terra2); display:flex; align-items:center; gap:11px; margin-bottom:14px; }
+.stag::before { content:''; width:22px; height:1px; background:var(--terra2); }
+.stitle { font-family:'DM Serif Display',serif; font-size:clamp(2rem,4vw,3.6rem); font-weight:400; line-height:1.05; color:var(--ivory); }
+.stitle em { font-style:italic; color:var(--terra2); }
+.stitle.dark { color:var(--ink); }
+.sec-sub { font-size:.95rem; font-weight:300; color:rgba(245,240,232,.5); line-height:1.8; max-width:520px; margin-top:14px; }
+
+/* ── ABOUT ── */
+#about { padding:100px 56px; background:var(--ivory2); display:grid; grid-template-columns:1fr 1.15fr; gap:88px; align-items:center; }
+.about-vis { position:relative; }
+.about-img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; filter:saturate(.88); }
+.about-accent { position:absolute; bottom:-24px; right:-24px; width:50%; aspect-ratio:1; object-fit:cover; border:5px solid var(--ivory2); filter:saturate(.8); }
+.about-float { position:absolute; top:32px; left:-28px; background:var(--sage); color:var(--ivory2); padding:18px 22px; text-align:center; }
+.af-n { font-family:'DM Serif Display',serif; font-size:2.6rem; color:var(--sand2); line-height:1; }
+.af-l { font-size:.52rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(226,216,200,.6); margin-top:4px; }
+.about-text .stag::before { background:var(--terra); }
+.about-text .stag { color:var(--terra); }
+.about-text .stitle { color:var(--ink); }
+.about-text p { color:var(--stone); line-height:1.9; font-size:.93rem; margin-bottom:16px; }
+.etags { display:flex; flex-wrap:wrap; gap:7px; margin-top:24px; }
+.etag { border:1px solid rgba(194,94,58,.25); color:var(--stone); font-size:.6rem; letter-spacing:.13em; text-transform:uppercase; padding:6px 13px; transition:all .3s; border-radius:1px; }
+.etag:hover { border-color:var(--terra); color:var(--terra); background:var(--terra3); }
+.about-cta { display:flex; gap:12px; flex-wrap:wrap; margin-top:32px; }
+.btn-dark { display:inline-flex; align-items:center; gap:9px; background:var(--ink); color:var(--ivory); padding:13px 30px; font-size:.66rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; text-decoration:none; border:1px solid var(--ink); transition:all .3s; border-radius:2px; }
+.btn-dark:hover { background:var(--terra); border-color:var(--terra); transform:translateY(-2px); box-shadow:0 10px 30px rgba(194,94,58,.25); }
+.btn-outline { display:inline-flex; align-items:center; gap:9px; color:var(--ink); padding:13px 30px; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(15,13,11,.2); transition:all .3s; border-radius:2px; }
+.btn-outline:hover { border-color:var(--terra); color:var(--terra); }
+
+/* ── GALLERY ── */
+#gallery { padding:100px 56px; background:var(--ink2); }
+.gallery-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:52px; flex-wrap:wrap; gap:24px; }
+.view-all { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,240,232,.4); display:flex; align-items:center; gap:9px; text-decoration:none; transition:color .3s; border-bottom:1px solid rgba(245,240,232,.1); padding-bottom:3px; }
+.view-all:hover { color:var(--terra2); border-bottom-color:var(--terra2); }
+.view-all svg { transition:transform .3s; }
+.view-all:hover svg { transform:translateX(5px); }
+
+/* Masonry-inspired grid */
+.cat-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:260px; gap:3px; }
+.cat-card { position:relative; overflow:hidden; cursor:pointer; background:var(--ink3); }
+.cat-card:nth-child(1) { grid-column:1/3; grid-row:1/3; }
+.cat-card:nth-child(6) { grid-column:3/5; grid-row:3/4; }
+.cat-card:nth-child(7) { grid-row:4/5; }
+.cat-card:nth-child(10) { grid-column:1/2; }
+
+.cat-img { position:absolute; inset:0; }
+.cat-img img { width:100%; height:100%; object-fit:cover; transition:transform .9s cubic-bezier(.25,.46,.45,.94), filter .5s; filter:saturate(.65) brightness(.75); }
+.cat-card:hover .cat-img img { transform:scale(1.08); filter:saturate(.45) brightness(.5); }
+
+.cat-body { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:22px; background:linear-gradient(to top,rgba(15,13,11,.8) 0%,rgba(15,13,11,.1) 55%,transparent 100%); transition:background .4s; }
+.cat-card:hover .cat-body { background:linear-gradient(to top,rgba(15,13,11,.92) 0%,rgba(15,13,11,.5) 80%,rgba(15,13,11,.15) 100%); }
+.cat-num { font-size:.65rem; font-weight:300; color:rgba(245,240,232,.3); letter-spacing:.1em; margin-bottom:5px; transition:color .3s; }
+.cat-card:hover .cat-num { color:var(--terra2); }
+.cat-name { font-family:'DM Serif Display',serif; font-size:clamp(1rem,2vw,1.5rem); font-weight:400; color:var(--ivory); line-height:1.1; margin-bottom:5px; }
+.cat-sub { font-size:.57rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(245,240,232,.4); transition:color .3s; }
+.cat-card:hover .cat-sub { color:var(--terra2); }
+.cat-arr { position:absolute; top:16px; right:16px; width:38px; height:38px; border:1px solid rgba(245,240,232,.15); display:flex; align-items:center; justify-content:center; color:rgba(245,240,232,.4); opacity:0; transform:scale(.7) rotate(-45deg); transition:all .4s; border-radius:2px; }
+.cat-card:hover .cat-arr { opacity:1; transform:scale(1) rotate(0); color:var(--ivory); border-color:rgba(245,240,232,.5); }
+
+/* ── ALBUM MODAL ── */
+.album-modal { position:fixed; inset:0; z-index:5000; background:var(--ivory2); opacity:0; pointer-events:none; transition:opacity .4s; overflow-y:auto; }
+.album-modal.open { opacity:1; pointer-events:all; }
+.album-inner { max-width:1360px; margin:0 auto; padding:52px 52px 80px; }
+.album-hdr { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:44px; padding-bottom:22px; border-bottom:1px solid rgba(196,180,154,.35); }
+.album-tag { font-size:.58rem; letter-spacing:.38em; text-transform:uppercase; color:var(--terra); display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.album-tag::before { content:''; width:18px; height:1px; background:var(--terra); }
+.album-title { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,4vw,3rem); color:var(--ink); }
+.album-title em { font-style:italic; color:var(--terra); }
+.album-close { background:none; border:1px solid rgba(15,13,11,.15); color:var(--stone); width:46px; height:46px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .3s; border-radius:2px; font-size:.95rem; }
+.album-close:hover { border-color:var(--terra); color:var(--terra); }
+.album-photos { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+.aph { position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--sand2); cursor:pointer; }
+.aph img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.25,.46,.45,.94), filter .4s; filter:saturate(.88); }
+.aph:hover img { transform:scale(1.06); filter:saturate(1); }
+.aph-ov { position:absolute; inset:0; background:rgba(15,13,11,0); transition:background .4s; display:flex; align-items:flex-end; padding:16px; }
+.aph:hover .aph-ov { background:rgba(15,13,11,.42); }
+.aph-exp { width:38px; height:38px; border:1px solid rgba(245,240,232,.6); display:flex; align-items:center; justify-content:center; color:var(--ivory); transition:all .3s; opacity:0; transform:translateY(7px); border-radius:2px; background:none; cursor:pointer; }
+.aph:hover .aph-exp { opacity:1; transform:translateY(0); }
+.aph-exp:hover { background:var(--terra); border-color:var(--terra); }
+
+/* ── LIGHTBOX ── */
+.lightbox { position:fixed; inset:0; z-index:6000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; }
+.lightbox.open { opacity:1; pointer-events:all; }
+.lb-back { position:absolute; inset:0; background:rgba(10,8,6,.95); }
+.lb-close { position:absolute; top:16px; right:16px; z-index:10; width:48px; height:48px; background:rgba(245,240,232,.07); border:1px solid rgba(245,240,232,.18); color:var(--ivory); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .3s; border-radius:2px; font-size:1rem; }
+.lb-close:hover { background:var(--terra); border-color:var(--terra); }
+.lb-nav { position:absolute; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; background:rgba(245,240,232,.05); border:1px solid rgba(245,240,232,.12); color:var(--ivory); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .3s; border-radius:2px; font-size:1.3rem; }
+.lb-nav:hover { background:var(--terra); border-color:var(--terra); }
+.lb-prev { left:14px; } .lb-next { right:14px; }
+.lb-nav[disabled] { opacity:.2; pointer-events:none; }
+.lb-wrap { position:relative; z-index:5; display:flex; flex-direction:column; align-items:center; max-width:92vw; max-height:90vh; }
+.lb-img { max-width:90vw; max-height:78vh; object-fit:contain; box-shadow:0 24px 80px rgba(0,0,0,.7); }
+.lb-foot { width:100%; display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding:0 2px; }
+.lb-caption { font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(245,240,232,.45); }
+.lb-counter { font-family:'DM Serif Display',serif; font-size:.9rem; color:var(--terra2); }
+
+/* ── SERVICES ── */
+#services { padding:100px 56px; background:var(--sage); }
+.svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(196,180,154,.08); margin-top:56px; }
+.svc-card { background:rgba(58,79,60,.7); padding:44px 34px; position:relative; overflow:hidden; transition:background .4s; }
+.svc-card::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--terra2); transition:width .5s; }
+.svc-card:hover { background:rgba(77,102,80,.8); }
+.svc-card:hover::after { width:100%; }
+.svc-card:last-child { grid-column:2/3; }
+.svc-bg-num { position:absolute; top:18px; right:18px; font-family:'DM Serif Display',serif; font-size:5rem; font-weight:400; color:rgba(226,216,200,.04); line-height:1; }
+.svc-icon { width:46px; height:46px; border:1px solid rgba(194,94,58,.3); display:flex; align-items:center; justify-content:center; color:var(--terra2); margin-bottom:20px; font-size:1.2rem; transition:all .3s; border-radius:2px; }
+.svc-card:hover .svc-icon { background:var(--terra); border-color:var(--terra); color:var(--white); }
+.svc-name { font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--ivory); margin-bottom:12px; }
+.svc-desc { font-size:.84rem; color:rgba(196,180,154,.62); line-height:1.82; }
+.svc-cta { margin-top:22px; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--terra2); display:flex; align-items:center; gap:9px; opacity:0; transform:translateY(6px); transition:all .35s; }
+.svc-card:hover .svc-cta { opacity:1; transform:translateY(0); }
+.svc-cta::before { content:''; width:14px; height:1px; background:var(--terra2); }
+
+/* ── PROCESS ── */
+#process { padding:100px 56px; background:var(--ivory2); }
+.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:52px; }
+.pstep { padding:0 32px 0 0; position:relative; }
+.pstep-line { position:absolute; top:28px; left:64px; right:0; height:1px; background:rgba(196,180,154,.35); z-index:0; }
+.pstep:last-child .pstep-line { display:none; }
+.pstep-num { width:56px; height:56px; border:1px solid rgba(196,180,154,.4); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--terra); margin-bottom:22px; background:var(--ivory2); position:relative; z-index:1; transition:all .3s; border-radius:2px; }
+.pstep:hover .pstep-num { background:var(--terra); color:var(--white); border-color:var(--terra); }
+.pstep-name { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--ink); margin-bottom:10px; }
+.pstep-desc { font-size:.83rem; color:var(--stone); line-height:1.8; }
+
+/* ── SOCIAL PROOF STRIP ── */
+.proof-strip { padding:44px 56px; background:var(--ink); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; border-top:1px solid rgba(196,180,154,.06); border-bottom:1px solid rgba(196,180,154,.06); }
+.proof-stat { text-align:center; }
+.ps-n { font-family:'DM Serif Display',serif; font-size:2.8rem; color:var(--sand2); line-height:1; }
+.ps-l { font-size:.55rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(196,180,154,.45); margin-top:6px; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { padding:100px 56px; background:var(--ink2); }
+.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+.tcard { background:rgba(255,255,255,.03); padding:32px; border-top:1px solid rgba(196,180,154,.08); transition:all .3s; position:relative; overflow:hidden; }
+.tcard::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(to right,var(--terra),transparent); transform:scaleX(0); transition:transform .4s; transform-origin:left; }
+.tcard:hover { background:rgba(255,255,255,.055); }
+.tcard:hover::before { transform:scaleX(1); }
+.tq { font-family:'DM Serif Display',serif; font-size:3.5rem; color:rgba(194,94,58,.15); line-height:.6; margin-bottom:14px; display:block; transition:color .3s; }
+.tcard:hover .tq { color:rgba(194,94,58,.28); }
+.tstars { color:var(--terra2); font-size:.7rem; letter-spacing:2px; margin-bottom:12px; }
+.ttext { font-size:.87rem; color:rgba(196,180,154,.65); line-height:1.88; font-style:italic; margin-bottom:22px; }
+.tauthor { display:flex; align-items:center; gap:12px; padding-top:16px; border-top:1px solid rgba(196,180,154,.08); }
+.tauthor img { width:40px; height:40px; border-radius:50%; object-fit:cover; filter:grayscale(20%); }
+.tname { font-size:.82rem; font-weight:500; color:var(--ivory); }
+.trole { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--terra2); margin-top:2px; }
+
+/* ── CTA BAND ── */
+.cta-band { padding:80px 56px; background:var(--terra); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+.cta-band-left h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3.5vw,3rem); color:var(--white); line-height:1.1; }
+.cta-band-left h2 em { font-style:italic; opacity:.8; }
+.cta-band-left p { font-size:.9rem; color:rgba(255,255,255,.7); margin-top:10px; }
+.btn-white { display:inline-flex; align-items:center; gap:10px; background:var(--white); color:var(--terra); padding:15px 34px; font-size:.68rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; border-radius:2px; border:2px solid var(--white); transition:all .3s; flex-shrink:0; }
+.btn-white:hover { background:transparent; color:var(--white); transform:translateY(-2px); box-shadow:0 12px 36px rgba(15,13,11,.2); }
+
+/* ── CONTACT ── */
+#contact { padding:100px 56px; background:var(--ivory2); display:grid; grid-template-columns:1fr 1.3fr; gap:80px; }
+.contact-info .stag::before { background:var(--terra); }
+.contact-info .stag { color:var(--terra); }
+.contact-info .stitle { color:var(--ink); }
+.contact-intro { font-size:.93rem; color:var(--stone); line-height:1.82; margin-bottom:40px; }
+.cdet-list { display:flex; flex-direction:column; }
+.cdet { display:flex; align-items:flex-start; gap:16px; padding:16px 18px; border:1px solid rgba(196,180,154,.22); border-bottom:none; transition:all .3s; position:relative; overflow:hidden; }
+.cdet:last-of-type { border-bottom:1px solid rgba(196,180,154,.22); }
+.cdet::before { content:''; position:absolute; left:0; top:0; bottom:0; width:0; background:var(--terra); transition:width .3s; }
+.cdet:hover { background:var(--ivory); }
+.cdet:hover::before { width:2px; }
+.cdet-icon { width:44px; height:44px; border:1px solid rgba(194,94,58,.2); display:flex; align-items:center; justify-content:center; color:var(--terra); flex-shrink:0; font-size:.95rem; transition:all .3s; border-radius:2px; }
+.cdet:hover .cdet-icon { background:var(--terra); color:var(--white); border-color:var(--terra); }
+.cdet-lbl { font-size:.54rem; letter-spacing:.24em; text-transform:uppercase; color:var(--terra); margin-bottom:3px; }
+.cdet-val { font-size:.9rem; color:var(--stone); }
+.cdet-val a { color:var(--ink); text-decoration:none; transition:color .3s; }
+.cdet-val a:hover { color:var(--terra); }
+.avail { display:inline-flex; align-items:center; gap:10px; margin-top:28px; padding:12px 20px; border:1px solid rgba(92,184,122,.25); background:rgba(92,184,122,.05); border-radius:100px; }
+.avail-dot { width:7px; height:7px; background:#5cb87a; border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(92,184,122,.5);} 50%{box-shadow:0 0 0 7px rgba(92,184,122,0);} }
+.avail-txt { font-size:.64rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); }
+
+/* Form */
+.form-wrap { background:var(--white); padding:44px 40px; border-top:2px solid var(--terra); box-shadow:0 24px 60px rgba(15,13,11,.06); }
+.form-title { font-family:'DM Serif Display',serif; font-size:1.55rem; color:var(--ink); margin-bottom:5px; }
+.form-title em { font-style:italic; color:var(--terra); }
+.form-sub { font-size:.77rem; color:var(--stone); margin-bottom:30px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.fg { border-bottom:1px solid rgba(196,180,154,.4); position:relative; transition:border-color .3s; }
+.fg::after { content:''; position:absolute; bottom:-1px; left:0; width:0; height:1.5px; background:var(--terra); transition:width .4s; }
+.fg:focus-within::after { width:100%; }
+.fg input, .fg textarea, .fg select { width:100%; background:transparent; border:none; padding:18px 0; color:var(--ink); font-family:'Outfit',sans-serif; font-size:.9rem; font-weight:300; outline:none; }
+.fg input::placeholder, .fg textarea::placeholder { color:var(--sand); font-size:.78rem; letter-spacing:.05em; }
+.fg textarea { resize:none; height:108px; }
+.fg select { color:var(--sand); font-size:.78rem; cursor:pointer; }
+.fg select option { background:var(--white); color:var(--ink); }
+.cf-success { display:none; margin-top:16px; padding:16px 20px; border:1px solid rgba(92,184,122,.3); background:rgba(92,184,122,.05); border-radius:2px; }
+.cf-success-inner { display:flex; align-items:center; gap:10px; }
+.cf-submit { background:var(--terra); color:var(--white); border:none; padding:16px 44px; font-family:'Outfit',sans-serif; font-size:.67rem; font-weight:500; letter-spacing:.24em; text-transform:uppercase; cursor:pointer; transition:all .3s; align-self:flex-start; margin-top:28px; display:inline-flex; align-items:center; gap:10px; border-radius:2px; border:1px solid var(--terra); }
+.cf-submit:hover { background:var(--ink); border-color:var(--ink); transform:translateY(-2px); box-shadow:0 12px 36px rgba(15,13,11,.18); }
+.cf-submit svg { transition:transform .3s; }
+.cf-submit:hover svg { transform:translateX(3px); }
+
+/* ── FOOTER ── */
+footer { background:var(--ink); padding:0; }
+.ft-top { padding:60px 56px 44px; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:44px; border-bottom:1px solid rgba(196,180,154,.07); }
+.ft-logo { font-family:'DM Serif Display',serif; font-size:1.7rem; color:var(--ivory); margin-bottom:14px; }
+.ft-logo em { font-style:italic; color:var(--terra2); }
+.ft-tag { font-size:.82rem; color:rgba(196,180,154,.45); line-height:1.75; max-width:270px; }
+.ft-col-title { font-size:.57rem; letter-spacing:.28em; text-transform:uppercase; color:rgba(196,180,154,.35); margin-bottom:18px; }
+.ft-col a { display:block; font-size:.84rem; color:rgba(196,180,154,.55); text-decoration:none; margin-bottom:9px; transition:color .3s; }
+.ft-col a:hover { color:var(--ivory); }
+.ft-bot { padding:22px 56px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+.ft-copy { font-size:.6rem; color:rgba(196,180,154,.3); letter-spacing:.08em; }
+.ft-soc { display:flex; gap:8px; }
+.ft-soc a { width:34px; height:34px; border:1px solid rgba(196,180,154,.1); display:flex; align-items:center; justify-content:center; color:rgba(196,180,154,.38); text-decoration:none; transition:all .3s; font-size:.82rem; border-radius:2px; }
+.ft-soc a:hover { border-color:var(--terra); color:var(--terra); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .85s, transform .85s; }
+.reveal.vis { opacity:1; transform:none; }
+.rd1{transition-delay:.08s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.28s;}.rd4{transition-delay:.38s;}
+
+/* ── ICONS (inline SVG helper) ── */
+.ico { width:1em; height:1em; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; vertical-align:middle; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1200px){
+  nav,nav.scrolled{padding:18px 36px;} #hero .hero-inner{padding:0 36px;} .hero-stats{display:none;}
+  #about,#gallery,#services,#process,#testimonials,#contact,.proof-strip,.cta-band{padding:80px 36px;}
+  .ft-top{padding:48px 36px 36px;grid-template-columns:1fr 1fr;} .ft-bot{padding:18px 36px;}
+  .cat-grid{grid-auto-rows:220px;}
+}
+@media(max-width:900px){
+  .nav-links{display:none;} .menu-tog{display:block;}
+  #hero .hero-inner{padding:0 22px 180px;} #about{grid-template-columns:1fr;gap:44px;padding:64px 22px;} .about-accent,.about-float{display:none;}
+  #gallery{padding:64px 22px;} .cat-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px;} .cat-card:nth-child(1){grid-column:1/3;grid-row:auto;} .cat-card:nth-child(6){grid-column:1/3;} .cat-card:nth-child(7){grid-row:auto;} .cat-card:nth-child(10){grid-column:auto;}
+  .svc-grid{grid-template-columns:1fr;} .svc-card:last-child{grid-column:1;}
+  .process-grid{grid-template-columns:1fr 1fr;gap:32px;} .pstep-line{display:none;}
+  .test-grid{grid-template-columns:1fr;}
+  #contact{grid-template-columns:1fr;gap:52px;padding:64px 22px;}
+  .ft-top{padding:40px 22px 28px;grid-template-columns:1fr 1fr;} .ft-bot{padding:18px 22px;flex-direction:column;text-align:center;}
+  .proof-strip{padding:36px 22px;justify-content:center;} .cta-band{padding:60px 22px;}
+}
+@media(max-width:600px){
+  nav,nav.scrolled{padding:14px 18px;} .hero-mosaic-mob{grid-template-columns:1fr 1fr;}
+  #gallery{padding:52px 12px;} .cat-grid{grid-template-columns:1fr;} .cat-card:nth-child(1){grid-column:1;} .cat-card:nth-child(6){grid-column:1;}
+  .album-photos{grid-template-columns:1fr 1fr;} .album-inner{padding:32px 16px 52px;}
+  #services,#process,#testimonials{padding:52px 18px;} .process-grid{grid-template-columns:1fr;}
+  .ft-top{grid-template-columns:1fr;padding:28px 18px 18px;} .ft-bot{padding:14px 18px;}
+  .form-row{grid-template-columns:1fr;} .form-wrap{padding:30px 22px;}
+}
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cring"></div>
+
+<!-- Mobile Menu -->
+<div class="mob" id="mob">
+  <button class="mob-x" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="interior_index.html">Home</a>
+  <a href="#gallery" onclick="document.getElementById('mob').classList.remove('open');setTimeout(()=>document.querySelector('#gallery').scrollIntoView({behavior:'smooth'}),300)">Work</a>
+  <a href="interior_about.html">About</a>
+  <a href="#services" onclick="document.getElementById('mob').classList.remove('open');setTimeout(()=>document.querySelector('#services').scrollIntoView({behavior:'smooth'}),300)">Services</a>
+  <a href="interior_contact.html">Contact</a>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <a href="interior_index.html" class="nav-logo"><span class="logo-pip"></span>Space<em>s</em></a>
+  <div class="nav-links">
+    <a href="interior_index.html">Home</a>
+    <a href="#gallery">Work</a>
+    <a href="interior_about.html">About</a>
+    <a href="#services">Services</a>
+    <a href="interior_contact.html" class="nav-btn">Hire Me</a>
+  </div>
+  <button class="menu-tog" onclick="document.getElementById('mob').classList.add('open')">☰</button>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hc"><img src="assets/category/2D Interior design/main.jpg" alt="Interior" loading="eager"></div>
+    <div class="hc"><img src="assets/category/2D Interior design/main3.jpg" alt="Design" loading="eager"></div>
+    <div class="hc"><img src="assets/category/2D Interior design/main4.jpg" alt="Space" loading="eager"></div>
+    <div class="hc"><img src="assets/category/2D Interior design/main2.jpg" alt="Farm" loading="eager"></div>
+    <div class="hc"><img src="assets/category/2D Interior design/cover10.jpg" alt="Plan" loading="eager"></div>
+    <div class="hc"><img src="assets/category/2D Interior design/main5.jpg" alt="Agri" loading="eager"></div>
+    <div class="hc"><img src="assets/img/gallery/gallery-7.jpg" alt="Green" loading="eager"></div>
+    <div class="hc"><img src="assets/img/gallery/gallery-8-2.jpg" alt="Nature" loading="eager"></div>
+  </div>
+  <div class="hero-ov1"></div>
+  <div class="hero-ov2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-badge">Interior Design & Agriculture</span>
+      <span class="eyebrow-line"></span>
+    </div>
+    <h1 class="hero-title">
+      Designing
+      <em class="indent">Spaces</em>
+      <span class="indent2">That Breathe</span>
+    </h1>
+    <p class="hero-sub">From elegant interiors to thriving farms — environments where life flourishes, indoors and out.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn-primary">
+        <span>Explore Our Work</span>
+        <svg class="ico" viewBox="0 0 24 24" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="interior_contact.html" class="btn-ghost">
+        Start a Project
+        <svg class="ico" viewBox="0 0 24 24" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span class="scroll-txt">Scroll</span>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-n">120<span style="font-size:1.2rem">+</span></div><div class="hs-l">Projects Done</div></div>
+    <div class="hs"><div class="hs-n">8<span style="font-size:1.2rem">+</span></div><div class="hs-l">Years Active</div></div>
+    <div class="hs"><div class="hs-n">95<span style="font-size:1.2rem">+</span></div><div class="hs-l">Happy Clients</div></div>
+    <div class="hs"><div class="hs-n">11</div><div class="hs-l">Specialisations</div></div>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="tdot"></span>2D Interior Design</span>
+    <span class="ticker-item"><span class="tdot"></span>3D Interior Design</span>
+    <span class="ticker-item"><span class="tdot"></span>Crab Farming</span>
+    <span class="ticker-item"><span class="tdot"></span>Goat Farm</span>
+    <span class="ticker-item"><span class="tdot"></span>House Planning</span>
+    <span class="ticker-item"><span class="tdot"></span>Hydroponics</span>
+    <span class="ticker-item"><span class="tdot"></span>Micro Greens</span>
+    <span class="ticker-item"><span class="tdot"></span>Mushroom Cultivation</span>
+    <span class="ticker-item"><span class="tdot"></span>Open Cultivation</span>
+    <span class="ticker-item"><span class="tdot"></span>Polyhouse</span>
+    <span class="ticker-item"><span class="tdot"></span>2D Interior Design</span>
+    <span class="ticker-item"><span class="tdot"></span>3D Interior Design</span>
+    <span class="ticker-item"><span class="tdot"></span>Crab Farming</span>
+    <span class="ticker-item"><span class="tdot"></span>Goat Farm</span>
+    <span class="ticker-item"><span class="tdot"></span>House Planning</span>
+    <span class="ticker-item"><span class="tdot"></span>Hydroponics</span>
+    <span class="ticker-item"><span class="tdot"></span>Micro Greens</span>
+    <span class="ticker-item"><span class="tdot"></span>Mushroom Cultivation</span>
+    <span class="ticker-item"><span class="tdot"></span>Open Cultivation</span>
+    <span class="ticker-item"><span class="tdot"></span>Polyhouse</span>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="about-vis reveal">
+    <img src="assets/Modern minimalist living room design.png" alt="Designer" class="about-img">
+  </div>
+  <div class="about-text reveal rd2">
+    <div class="stag">Who We Are</div>
+    <h2 class="stitle dark">Where Design Meets<br><em>Purpose</em></h2>
+    <p>We are a multidisciplinary design and planning studio based in Chennai, specialising in spaces that serve both beauty and function. From crafting breathtaking interiors to engineering productive farm ecosystems — every space has a story waiting to be told.</p>
+    <p>Our work spans residential interiors, commercial spaces, agricultural planning, and sustainable farming systems. We bring the same precision and passion to a 3D interior visualisation as we do to a polyhouse irrigation plan.</p>
+    <div class="etags">
+      <span class="etag">2D Interior</span>
+      <span class="etag">3D Visualisation</span>
+      <span class="etag">Farm Planning</span>
+      <span class="etag">Hydroponics</span>
+      <span class="etag">Polyhouse</span>
+      <span class="etag">Micro Greens</span>
+      <span class="etag">Mushroom Farming</span>
+      <span class="etag">Crab Farming</span>
+      <span class="etag">Goat Farm</span>
+      <span class="etag">Open Cultivation</span>
+    </div>
+    <div class="about-cta">
+      <a href="interior_about.html" class="btn-dark">About Us</a>
+      <a href="interior_contact.html" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" style="scroll-margin-top:80px;">
+  <div class="gallery-head reveal">
+    <div>
+      <div class="stag">Our Portfolio</div>
+      <h2 class="stitle">Selected <em>Works</em></h2>
+      <p class="sec-sub">Click any category to explore the full album.</p>
+    </div>
+    <a href="#gallery" class="view-all">
+      All Projects
+      <svg class="ico" viewBox="0 0 24 24" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+  <div class="cat-grid reveal">
+    <div class="cat-card" onclick="openAlbum('2d')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover.jpg" alt="2D Interior" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">01</div><h3 class="cat-name">2D Interior Design</h3><p class="cat-sub">Floor Plans · Layouts · Drafting</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('3d')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover2.jpg" alt="3D Interior" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">02</div><h3 class="cat-name">3D Interior Design</h3><p class="cat-sub">Visualisation · Rendering · Walkthrough</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('crab')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover3.png" alt="Crab Farm" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">03</div><h3 class="cat-name">Crab Farming</h3><p class="cat-sub">Aquaculture · Tank Design · Planning</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('goat')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover4.jpg" alt="Goat Farm" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">04</div><h3 class="cat-name">Goat Farm</h3><p class="cat-sub">Shed Design · Pasture Layout</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('house')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover8.jpeg" alt="House Plan" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">05</div><h3 class="cat-name">House Plan</h3><p class="cat-sub">Architecture · Site Plan · Elevation</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('hydro')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/coverr9.webp" alt="Hydroponics" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">06</div><h3 class="cat-name">Hydroponics</h3><p class="cat-sub">NFT · DWC · Grow Systems</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('micro')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover10.jpg" alt="Micro Green" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">07</div><h3 class="cat-name">Micro Green</h3><p class="cat-sub">Indoor Grow · Tray Systems</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('mushroom')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover11.jpg" alt="Mushroom" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">08</div><h3 class="cat-name">Mushroom</h3><p class="cat-sub">Substrate · Climate Control</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('open')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover12.webp" alt="Open Cultivation" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">09</div><h3 class="cat-name">Open Cultivation</h3><p class="cat-sub">Field Layout · Irrigation</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+    <div class="cat-card" onclick="openAlbum('polyhouse')">
+      <div class="cat-img"><img src="assets/category/2D Interior design/cover13.jpg" alt="Polyhouse" loading="lazy"></div>
+      <div class="cat-body"><div class="cat-num">10</div><h3 class="cat-name">Polyhouse</h3><p class="cat-sub">Structure · Climate · Ventilation</p></div>
+      <div class="cat-arr">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- Album Modal -->
+<div class="album-modal" id="albumModal">
+  <div class="album-inner">
+    <div class="album-hdr">
+      <div>
+        <div class="album-tag">Portfolio</div>
+        <h2 class="album-title" id="albumTitle">Album</h2>
+      </div>
+      <button class="album-close" onclick="closeAlbum()">✕</button>
+    </div>
+    <div class="album-photos" id="albumPhotos"></div>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services" style="scroll-margin-top:80px;">
+  <div class="reveal">
+    <div class="stag">What We Do</div>
+    <h2 class="stitle">Services &<br><em>Expertise</em></h2>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal rd1"><span class="svc-bg-num">01</span><div class="svc-icon">⊞</div><h3 class="svc-name">2D Interior Design</h3><p class="svc-desc">Precise floor plans, layout drawings, and technical drafting that form the foundation of every beautiful interior space.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd2"><span class="svc-bg-num">02</span><div class="svc-icon">◈</div><h3 class="svc-name">3D Interior Design</h3><p class="svc-desc">Photorealistic renders and walkthroughs that let you experience your space before a single wall is built.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd3"><span class="svc-bg-num">03</span><div class="svc-icon">〜</div><h3 class="svc-name">Crab Farming</h3><p class="svc-desc">End-to-end aquaculture planning — tank design, water systems, stocking density, and harvest workflows.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd1"><span class="svc-bg-num">04</span><div class="svc-icon">⌾</div><h3 class="svc-name">Goat Farm</h3><p class="svc-desc">Optimised shed layouts, pasture planning, feeding systems, and farm infrastructure designed for productivity.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd2"><span class="svc-bg-num">05</span><div class="svc-icon">⌂</div><h3 class="svc-name">House Plan</h3><p class="svc-desc">Site plans, architectural drawings, elevations, and full residential planning from concept to submission-ready documents.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd3"><span class="svc-bg-num">06</span><div class="svc-icon">◌</div><h3 class="svc-name">Hydroponics</h3><p class="svc-desc">NFT, DWC, and hybrid grow system design — from small home setups to commercial-scale soilless farming.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd1"><span class="svc-bg-num">07</span><div class="svc-icon">✿</div><h3 class="svc-name">Micro Green</h3><p class="svc-desc">Nutrient-dense microgreen growing systems for health-conscious homes, restaurants, and commercial operations.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd2"><span class="svc-bg-num">08</span><div class="svc-icon">◑</div><h3 class="svc-name">Mushroom Cultivation</h3><p class="svc-desc">Substrate preparation, climate-controlled grow room design, and complete mushroom farm setup and training.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd3"><span class="svc-bg-num">09</span><div class="svc-icon">☀</div><h3 class="svc-name">Open Cultivation</h3><p class="svc-desc">Field crop layout, drip irrigation planning, soil health management, and seasonal crop rotation strategies.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+    <div class="svc-card reveal rd1"><span class="svc-bg-num">10</span><div class="svc-icon">⬡</div><h3 class="svc-name">Polyhouse</h3><p class="svc-desc">Poly tunnel and greenhouse structure design, climate control systems, and high-yield crop planning for year-round production.</p><div class="svc-cta">Get in Touch for Pricing</div></div>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+  <div class="reveal">
+    <div class="stag" style="color:var(--terra);">How We Work</div>
+    <h2 class="stitle dark">Our <em>Process</em></h2>
+  </div>
+  <div class="process-grid">
+    <div class="pstep reveal rd1">
+      <div class="pstep-line"></div>
+      <div class="pstep-num">01</div>
+      <h3 class="pstep-name">Consultation</h3>
+      <p class="pstep-desc">We begin by understanding your vision, site conditions, budget, and goals in a free discovery session.</p>
+    </div>
+    <div class="pstep reveal rd2">
+      <div class="pstep-line"></div>
+      <div class="pstep-num">02</div>
+      <h3 class="pstep-name">Concept Design</h3>
+      <p class="pstep-desc">Our team develops initial concepts with sketches, mood boards, and layout options for your review.</p>
+    </div>
+    <div class="pstep reveal rd3">
+      <div class="pstep-line"></div>
+      <div class="pstep-num">03</div>
+      <h3 class="pstep-name">Development</h3>
+      <p class="pstep-desc">Chosen concepts are refined into full technical drawings, 3D renders, or detailed farm plans ready for execution.</p>
+    </div>
+    <div class="pstep reveal rd4">
+      <div class="pstep-num">04</div>
+      <h3 class="pstep-name">Delivery & Support</h3>
+      <p class="pstep-desc">Final deliverables are handed over with full documentation and ongoing support through implementation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<div class="proof-strip reveal">
+  <div class="proof-stat"><div class="ps-n">120+</div><div class="ps-l">Projects Completed</div></div>
+  <div class="proof-stat"><div class="ps-n">2+</div><div class="ps-l">Years of Experience</div></div>
+  <div class="proof-stat"><div class="ps-n">95+</div><div class="ps-l">Happy Clients</div></div>
+  <div class="proof-stat"><div class="ps-n">11</div><div class="ps-l">Specialisations</div></div>
+  <div class="proof-stat"><div class="ps-n">⭐ 5.0</div><div class="ps-l">Client Rating</div></div>
+</div>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="reveal">
+    <div class="stag">Client Words</div>
+    <h2 class="stitle">What They <em>Say</em></h2>
+  </div>
+  <div class="test-grid">
+    <div class="tcard reveal rd1"><span class="tq">"</span><div class="tstars">★★★★★</div><p class="ttext">The 3D render was so accurate — when the space was finished, it looked exactly like the visualisation. Absolutely brilliant work.</p><div class="tauthor"><img src="assets/img/testimonials/testimonials-1.jpg" alt=""><div><div class="tname">Priya Nandakumar</div><div class="trole">Residential · Anna Nagar, Chennai</div></div></div></div>
+    <div class="tcard reveal rd2"><span class="tq">"</span><div class="tstars">★★★★★</div><p class="ttext">We set up a commercial hydroponics unit with their help. The system design was efficient and the yield in the first season exceeded projections.</p><div class="tauthor"><img src="assets/img/testimonials/testimonials-2.jpg" alt=""><div><div class="tname">Rajkumar Selvam</div><div class="trole">Farm Owner · Coimbatore</div></div></div></div>
+    <div class="tcard reveal rd3"><span class="tq">"</span><div class="tstars">★★★★★</div><p class="ttext">From floor plan to final 3D walk-through, the team captured our vision perfectly. Our new office looks like it belongs in a design magazine.</p><div class="tauthor"><img src="assets/img/testimonials/testimonials-3.jpg" alt=""><div><div class="tname">Deepika Rajan</div><div class="trole">Business Owner · T. Nagar, Chennai</div></div></div></div>
+    <div class="tcard reveal rd1"><span class="tq">"</span><div class="tstars">★★★★★</div><p class="ttext">Their polyhouse design transformed our 2-acre site in Trichy. The ventilation and drip system works flawlessly through the summer heat.</p><div class="tauthor"><img src="assets/img/testimonials/testimonials-4.jpg" alt=""><div><div class="tname">Murugesan Pillai</div><div class="trole">Agricultural Farmer · Trichy</div></div></div></div>
+    <div class="tcard reveal rd2"><span class="tq">"</span><div class="tstars">★★★★★</div><p class="ttext">My goat farm shed is so practical — every detail was thoughtfully planned. The animals are thriving.</p><div class="tauthor"><img src="assets/img/testimonials/testimonials-5.jpg" alt=""><div><div class="tname">Anbu Arumugam</div><div class="trole">Livestock Farmer · Villupuram</div></div></div></div>
+    <div class="tcard reveal rd3"><span class="tq">"</span><div class="tstars">★★★★★</div><p class="ttext">They designed a simple, cost-effective mushroom system we assembled in a weekend. Producing fresh mushrooms now!</p><div class="tauthor"><img src="assets/img/testimonials/testimonials-1.jpg" alt=""><div><div class="tname">Kavitha Suresh</div><div class="trole">Home Grower · Velachery, Chennai</div></div></div></div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+<div class="cta-band reveal">
+  <div class="cta-band-left">
+    <h2>Ready to Start Your<br><em>Next Project?</em></h2>
+    <p>Tell us your vision — we'll bring it to life with precision and care.</p>
+  </div>
+  <a href="interior_contact.html" class="btn-white">
+    Start a Conversation
+    <svg class="ico" viewBox="0 0 24 24" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <div class="stag">Get In Touch</div>
+    <h2 class="stitle dark">Start Your<br><em>Project</em></h2>
+    <p class="contact-intro">Have a space to design or a farm to plan? We'd love to understand your vision and make it real.</p>
+    <div class="cdet-list">
+      <div class="cdet">
+        <div class="cdet-icon">📍</div>
+        <div><div class="cdet-lbl">Location</div><div class="cdet-val">No.7, Rajaji nagar, Madipakkam,<br>Chennai – 600091</div></div>
+      </div>
+      <div class="cdet">
+        <div class="cdet-icon">📞</div>
+        <div><div class="cdet-lbl">Call / WhatsApp</div><div class="cdet-val">+91 89398 38374</div></div>
+      </div>
+      <div class="cdet">
+        <div class="cdet-icon">✉</div>
+        <div><div class="cdet-lbl">Email</div><div class="cdet-val">draftshausdesign@gmail.com</div></div>
+      </div>
+      <div class="cdet">
+        <div class="cdet-icon">📷</div>
+        <div><div class="cdet-lbl">Instagram</div><div class="cdet-val"><a href="https://www.instagram.com/thedraftshaus?utm_source=qr&igsh=ZncxNmsxd2V1Ymp1" target="_blank">@thedraftshaus</a></div></div>
+      </div>
+    </div>
+    <div class="avail"><div class="avail-dot"></div><span class="avail-txt">Currently accepting new projects</span></div>
+  </div>
+  <div class="reveal rd2">
+    <div class="form-wrap">
+      <div class="form-title">Send a <em>Message</em></div>
+      <p class="form-sub">Fill in your details and we'll get back to you via WhatsApp — usually within a few hours.</p>
+      <div class="form-row">
+        <div class="fg"><input type="text" id="cf-name" placeholder="Your Name" required></div>
+        <div class="fg"><input type="email" id="cf-email" placeholder="Your Email" required></div>
+      </div>
+      <div class="fg"><input type="tel" id="cf-phone" placeholder="Phone Number (optional)"></div>
+      <div class="fg">
+        <select id="cf-subject">
+          <option value="" disabled selected>— Project Type —</option>
+          <option>2D Interior Design</option>
+          <option>3D Interior Design</option>
+          <option>Crab Farming</option>
+          <option>Goat Farm</option>
+          <option>House Plan</option>
+          <option>Hydroponics</option>
+          <option>Micro Green</option>
+          <option>Mushroom Cultivation</option>
+          <option>Open Cultivation</option>
+          <option>Polyhouse</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><textarea id="cf-message" placeholder="Describe your project — size, location, requirements, timeline..."></textarea></div>
+      <div class="cf-success" id="cf-success">
+        <div class="cf-success-inner">
+          <span style="color:#5cb87a;font-size:1.1rem;">✓</span>
+          <div><div style="font-size:.83rem;color:#2c3d2e;font-weight:500;">WhatsApp Opened!</div><div style="font-size:.73rem;color:var(--stone);margin-top:2px;">Your message is pre-filled — just tap Send in WhatsApp.</div></div>
+        </div>
+      </div>
+      <button class="cf-submit" onclick="handleSubmit()">
+        <svg class="ico" viewBox="0 0 24 24" width="16" height="16" style="fill:none;stroke:currentColor;stroke-width:2;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Send via WhatsApp
+        <svg class="ico" viewBox="0 0 24 24" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <div class="ft-logo">Space<em>s</em></div>
+      <p class="ft-tag">Designing spaces where life flourishes — from elegant interiors to thriving farms across Tamil Nadu.</p>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-title">Services</div>
+      <a href="#services">2D Interior Design</a>
+      <a href="#services">3D Interior Design</a>
+      <a href="#services">House Planning</a>
+      <a href="#services">Hydroponics</a>
+      <a href="#services">Polyhouse</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-title">Agriculture</div>
+      <a href="#services">Crab Farming</a>
+      <a href="#services">Goat Farm</a>
+      <a href="#services">Micro Greens</a>
+      <a href="#services">Mushroom</a>
+      <a href="#services">Open Cultivation</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-title">Contact</div>
+      <a href="interior_contact.html">Get In Touch</a>
+      <a href="interior_about.html">About Us</a>
+      <a href="https://www.instagram.com/thedraftshaus?utm_source=qr&igsh=ZncxNmsxd2V1Ymp1" target="_blank">Instagram</a>
+      <a href="mailto:draftshausdesign@gmail.com">Email Us</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <div class="ft-copy">© 2025 Spaces · Interior Design & Agriculture Planning · Chennai, India</div>
+    <div class="ft-soc">
+      <a href="https://www.instagram.com/thedraftshaus?utm_source=qr&igsh=ZncxNmsxd2V1Ymp1" target="_blank">📷</a>
+      <a href="#">𝕏</a>
+      <a href="#">f</a>
+      <a href="#">in</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-back" onclick="closeLightbox()"></div>
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" onclick="lbPrev()">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" onclick="lbNext()">›</button>
+  <div class="lb-wrap" onclick="event.stopPropagation()">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <div class="lb-foot">
+      <div class="lb-caption" id="lbCaption"></div>
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),cring=document.getElementById('cring');
+if(window.innerWidth>768&&cur){
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  document.querySelectorAll('a,button,.cat-card,.svc-card,.tcard').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+  (function loop(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cring.style.left=rx+'px';cring.style.top=ry+'px';requestAnimationFrame(loop);})();
+}
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+
+// Reveal
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}}),{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Smooth anchors
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+}));
+
+// Albums
+const albums={
+  '2d':{label:'2D Interior <em>Design</em>',photos:[
+    {src:'assets/category/2D Interior design/Cut list.jpg'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0028.jpg',t:'Living Room Floor Plan'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0029.jpg',t:'Bedroom Layout'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0030.jpg',t:'Kitchen Plan'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0031.jpg',t:'Office Layout'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0032.jpg',t:'Bathroom Plan'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0033.jpg',t:'Villa Floor Plan'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0034.jpg'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0035.jpg'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0036.jpg'},
+    {src:'assets/category/2D Interior design/Client 1/IMG-20260331-WA0037.jpg'}
+  ]},
+  '3d':{label:'3D Interior <em>Design</em>',photos:[
+    
+    {src:'assets/category/3D Interior design/Crockery unit Final Render.png'},
+    {src:'assets/category/3D Interior design/Dressing table Kids Room.png'},
+    {src:'assets/category/3D Interior design/Dressing unit.png'},
+    {src:'assets/category/3D Interior design/Enscape_2026-03-29-22-22-31.png'},
+    {src:'assets/category/3D Interior design/Final render (2).png'},
+    {src:'assets/category/3D Interior design/Final render (1).png'},
+    {src:'assets/category/3D Interior design/Final Render Kitchen 2.png'},
+    {src:'assets/category/3D Interior design/Final render Kitchen.png'},
+    {src:'assets/category/3D Interior design/Final render(1).png'},
+    {src:'assets/category/3D Interior design/Final Render.png'},
+    {src:'assets/category/3D Interior design/IMG-20260214-WA0004(1).jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260222-WA0001(1).jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260223-WA0008(1).jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260301-WA0002(1).jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260301-WA0003(1).jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260314-WA0686.jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260315-WA0279.jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260315-WA0418.jpg'},
+    {src:'assets/category/3D Interior design/IMG-20260315-WA0419.jpg'},
+    {src:'assets/category/3D Interior design/Kids Bed room.png'},
+    {src:'assets/category/3D Interior design/Master Bed room Front view.png'},
+    {src:'assets/category/3D Interior design/Master bed room side view.png'},
+
+
+  ]},
+  crab:{label:'Crab <em>Farming</em>',photos:[{src:'assets/category/Crab farming/IMG-20260330-WA0007.jpg',t:'Tank Layout'},]},
+  goat:{label:'Goat <em>Farm</em>',photos:[{src:'assets/img/gallery/gallery-4.jpg',t:'Shed Layout'},]},
+  house:{label:'House <em>Plan</em>',photos:[{src:'assets/category/House plan/Client 1/IMG-20260331-WA0002.jpg',t:''},{src:'assets/category/House plan/Client 1/IMG-20260331-WA0003.jpg',t:''},{src:'assets/category/House plan/Client 2/1. Stilt floor.jpg',t:''},{src:'assets/category/House plan/Client 2/1st floor.jpg',t:''},{src:'assets/category/House plan/Client 2/2nd floor.jpg',t:''},{src:'assets/category/House plan/Client 2/3rd floor.jpg',t:''},{src:'assets/category/House plan/Client 2/Terrace.jpg',t:''}]},
+  hydro:{label:'<em>Hydroponics</em>',photos:[{src:'assets/category/Hydroponics/Client 1/IMG-20260330-WA0022.jpg',t:''},{src:'assets/category/Hydroponics/Client 1/IMG-20260330-WA0024.jpg',t:''},{src:'assets/category/Hydroponics/Client 1/IMG-20260330-WA0027.jpg',t:''},{src:'assets/category/Hydroponics/Client 2/IMG-20260330-WA0013.jpg',t:''},{src:'assets/category/Hydroponics/Client 2/IMG-20260330-WA0028.jpg',t:''},]},
+  micro:{label:'Micro <em>Green</em>',photos:[{src:'assets/category/Micro green/IMG-20260330-WA0008.jpg',t:''},{src:'assets/category/Micro green/IMG-20260330-WA0020.jpg',t:''},{src:'assets/category/Micro green/IMG-20260331-WA0000.jpg',t:''},]},
+  mushroom:{label:'Mushroom <em>Cultivation</em>',photos:[{src:'assets/category/Mushroom/IMG-20260330-WA0032.jpg',t:''},{src:'assets/category/Mushroom/IMG-20260330-WA0038.jpg',t:''},]},
+  open:{label:'Open <em>Cultivation</em>',photos:[{src:'assets/category/Open cultivation/Client 1.jpg',t:''},{src:'assets/category/Open cultivation/Client 2.jpg',t:''},{src:'assets/category/Open cultivation/Client 3.jpg',t:''},{src:'assets/category/Open cultivation/Client 4.jpg',t:''},{src:'assets/category/Open cultivation/Client 7 (Nursery 2).jpg',t:''},{src:'assets/category/Open cultivation/Client 5/IMG-20260330-WA0011.jpg',t:''},{src:'assets/category/Open cultivation/Client 5/IMG-20260330-WA0015.jpg',t:''},{src:'assets/category/Open cultivation/Client 6 (Nursery 1)/IMG-20260330-WA0025.jpg',t:''},{src:'assets/category/Open cultivation/Client 6 (Nursery 1)/IMG-20260330-WA0031.jpg',t:''}]},
+  polyhouse:{label:'<em>Polyhouse</em>',photos:[{src:'assets/category/Polyhouse/Client 1/IMG-20260330-WA0012.jpg',t:''},{src:'assets/category/Polyhouse/Client 1/IMG-20260330-WA0017.jpg',t:''},{src:'assets/category/Polyhouse/Client 1/IMG-20260330-WA0034.jpg',t:''},{src:'assets/category/Polyhouse/Client 1/IMG-20260330-WA0036.jpg',t:''},{src:'assets/category/Polyhouse/Client 2 (Vertical farm)/IMG-20260330-WA0023.jpg',t:''},{src:'assets/category/Polyhouse/Client 2 (Vertical farm)/IMG-20260330-WA0026.jpg',t:'Completed'},{src:'assets/category/Polyhouse/Client 1/IMG-20260330-WA0036.jpg',t:''},{src:'assets/category/Polyhouse/Client 2 (Vertical farm)/IMG-20260330-WA0023.jpg',t:''},{src:'assets/category/Polyhouse/Client 2 (Vertical farm)/IMG-20260330-WA0026.jpg',t:'Completed'},{src:'assets/category/Polyhouse/Client 2 (Vertical farm)/IMG-20260330-WA0033.jpg',t:''}]}
+};
+
+let _photos=[],_idx=0;
+
+function openAlbum(cat){
+  const d=albums[cat];if(!d)return;
+  _photos=d.photos;
+  document.getElementById('albumTitle').innerHTML=d.label;
+  document.getElementById('albumPhotos').innerHTML=d.photos.map((p,i)=>`
+    <div class="aph" onclick="openLightbox(${i})">
+      <img src="${p.src}" alt="${p.t||''}" loading="lazy">
+      <div class="aph-ov"><button class="aph-exp">⤢</button></div>
+    </div>`).join('');
+  const m=document.getElementById('albumModal');
+  m.classList.add('open');document.body.style.overflow='hidden';m.scrollTop=0;
+}
+function closeAlbum(){document.getElementById('albumModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('albumModal').addEventListener('click',function(e){if(e.target===this)closeAlbum();});
+
+function openLightbox(i){_idx=i;_lbRender();document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function _lbRender(){
+  const p=_photos[_idx];
+  document.getElementById('lbImg').src=p.src;
+  document.getElementById('lbImg').alt=p.t||'';
+  document.getElementById('lbCaption').textContent=p.t||'';
+  document.getElementById('lbCounter').textContent=(_idx+1)+' / '+_photos.length;
+  document.getElementById('lbPrev').disabled=(_idx===0);
+  document.getElementById('lbNext').disabled=(_idx===_photos.length-1);
+}
+function lbPrev(){if(_idx>0){_idx--;_lbRender();}}
+function lbNext(){if(_idx<_photos.length-1){_idx++;_lbRender();}}
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('lightbox').classList.contains('open')){
+    if(e.key==='Escape')closeLightbox();
+    if(e.key==='ArrowLeft')lbPrev();
+    if(e.key==='ArrowRight')lbNext();
+  } else if(e.key==='Escape')closeAlbum();
+});
+let _swX=0;
+document.getElementById('lightbox').addEventListener('touchstart',e=>{_swX=e.touches[0].clientX;},{passive:true});
+document.getElementById('lightbox').addEventListener('touchend',e=>{const d=_swX-e.changedTouches[0].clientX;if(Math.abs(d)>50){d>0?lbNext():lbPrev();}});
+
+// WhatsApp form
+function handleSubmit(){
+  const n=document.getElementById('cf-name').value.trim();
+  const em=document.getElementById('cf-email').value.trim();
+  const ph=document.getElementById('cf-phone').value.trim();
+  const sub=document.getElementById('cf-subject').value;
+  const msg=document.getElementById('cf-message').value.trim();
+  if(!n||!em||!sub){alert('Please fill in your name, email, and project type.');return;}
+  const wa='Hello! I found your portfolio and would like to enquire.\n\n*Name:* '+n+'\n*Email:* '+em+'\n*Phone:* '+(ph||'Not provided')+'\n*Project Type:* '+sub+'\n*Details:* '+(msg||'No additional details.')+'\n\nLooking forward to discussing this project!';
+  window.open('https://wa.me/8939838374?text='+encodeURIComponent(wa),'_blank');
+  document.getElementById('cf-success').style.display='block';
+  ['cf-name','cf-email','cf-phone','cf-message'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('cf-subject').selectedIndex=0;
+}
+</script>
+</body>
+</html>
